@@ -51,11 +51,12 @@ def replace_channel_mention(msg):
 
 @client.event
 async def on_member_join(member):
-    logger.info("Welcoming {0}".format(member.name))
-    mention = member.mention
-    channel = client.get_channel(int(conf["channel"]))
-    time.sleep(60)
-    await channel.send(replace_channel_mention(replace_macros(mention)))
+    if not member.bot:
+        logger.info("Welcoming {0}".format(member.name))
+        mention = member.mention
+        channel = client.get_channel(int(conf["channel"]))
+        await asyncio.sleep(60)
+        await channel.send(replace_channel_mention(replace_macros(mention)))
 
 
 def read_config():

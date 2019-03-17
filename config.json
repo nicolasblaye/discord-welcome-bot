@@ -1,0 +1,6 @@
+{
+  "channel": "556763001311461376",
+  "channel_mentions": ["556762076190605312"],
+  "message": "Bienvenue {mention} !\nMerci d'indiquer la couleur de ton équipe dans {channel_mention1}",
+  "macros": {}
+}

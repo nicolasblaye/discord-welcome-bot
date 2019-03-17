@@ -56,7 +56,7 @@ async def on_member_join(member):
         logger.info("Welcoming {0}".format(member.name))
         mention = member.mention
         channel = client.get_channel(int(conf["channel"]))
-        await asyncio.sleep(60)
+        await asyncio.sleep(20)
         await channel.send(replace_channel_mention(replace_macros(mention)))
 
 

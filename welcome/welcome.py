@@ -46,6 +46,7 @@ def replace_channel_mention(msg):
     for channel in conf["channel_mentions"]:
         key = "channel_mention" + str(i)
         msg = msg.replace("{" + key + "}", client.get_channel(int(channel)).mention)
+        i += 1
     return msg
 
 

@@ -8,4 +8,5 @@ setup(
    author_email='whitefret@gmail.com',
    packages=['welcome'],
    install_requires=[],
+   include_package_data=True
 )

@@ -108,3 +108,4 @@ venv.bak/
 
 src
 .token
+*.log

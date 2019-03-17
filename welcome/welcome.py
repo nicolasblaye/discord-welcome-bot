@@ -1,10 +1,20 @@
 import json
 import logging
+import time
 
 import discord
 import asyncio
 
-logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger('discord')
+logger.setLevel(logging.INFO)
+handler = logging.FileHandler(filename='discord.log', encoding='utf-8', mode='w')
+console = logging.StreamHandler()
+console.setLevel(logging.INFO)
+handler.setFormatter(logging.Formatter('%(asctime)s:%(levelname)s:%(name)s: %(message)s'))
+console.setFormatter(logging.Formatter('%(asctime)s:%(levelname)s:%(name)s: %(message)s'))
+logger.addHandler(handler)
+logger.addHandler(console)
+
 client = discord.Client()
 
 
@@ -21,7 +31,7 @@ async def run(token):
 
 @client.event
 async def on_ready():
-    logging.info("on_ready")
+    logger.info("on_ready")
 
 
 def replace_macros(mention):
@@ -41,8 +51,10 @@ def replace_channel_mention(msg):
 
 @client.event
 async def on_member_join(member):
+    logger.info("Welcoming {0}".format(member.name))
     mention = member.mention
     channel = client.get_channel(int(conf["channel"]))
+    time.sleep(60)
     await channel.send(replace_channel_mention(replace_macros(mention)))
 
 

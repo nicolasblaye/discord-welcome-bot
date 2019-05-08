@@ -6,7 +6,7 @@ verify_ssl = true
 [dev-packages]
 
 [packages]
-discord = {editable = true,git = "git://github.com/Rapptz/discord.py",ref = "rewrite"}
+discord-py = "==1.0.1"
 
 [requires]
 python_version = "3.7"
